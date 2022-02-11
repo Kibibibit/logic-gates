@@ -1,3 +1,5 @@
+
+
 public class Gate implements UpdateInterface {
   
   private String name;
@@ -41,7 +43,11 @@ public class Gate implements UpdateInterface {
        );
        
        
+       
        if (node.getInput()) {
+         
+         node.getOutputs().add(this);
+         
          inputs.put(node.getIndex(),node);
        } else {
          outputs.put(node.getIndex(),node); 
@@ -57,6 +63,8 @@ public class Gate implements UpdateInterface {
       truthTable.put(k,jsonTable.getString(k));
     }
     
+    this.update(false);
+    
   }
   
   
@@ -69,6 +77,19 @@ public class Gate implements UpdateInterface {
     
     //Clone maps
     
+    for (HashMap.Entry<Integer, Node> entry : inputs.entrySet()) {
+      out.getInputs().put(entry.getKey(), ((Node) entry.getValue()).clone(out));
+    }
+    
+    for (HashMap.Entry<Integer, Node> entry : outputs.entrySet()) {
+      out.getOutputs().put(entry.getKey(), ((Node) entry.getValue()).clone());
+    }
+    
+    for (HashMap.Entry<String, String> entry : truthTable.entrySet()) {
+      out.getTruthTable().put(entry.getKey(), (String) entry.getValue());
+    }
+    
+    out.update(false);
     
     return out;
     

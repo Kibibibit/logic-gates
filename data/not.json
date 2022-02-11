@@ -1,0 +1,26 @@
+{
+    "name": "NOT",
+
+    "nodes":[
+        {
+            "name":"A",
+            "input":true,
+            "index":0
+        },
+        {
+            "name":"Q",
+            "input":false,
+            "index":0
+        }
+    ],
+
+    "table":{
+        "0":"1",
+        "1":"0",
+    }
+
+
+
+
+
+}

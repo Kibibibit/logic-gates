@@ -14,20 +14,40 @@ public class Node implements UpdateInterface {
     this.input = input;
     this.outputs = new ArrayList<UpdateInterface>();
     this.index = index;
+    this.update(this.state);
   }
   
+  
+  public Node clone() {
+    Node out = new Node(this.name,this.input,this.index);
+    
+    out.update(out.state);
+    
+    return out;
+    
+  }
+  
+  public Node clone(UpdateInterface output) {
+   
+    Node out = this.clone();
+    
+    out.getOutputs().add(output);
+    
+    return out;
+    
+  }
   
   
   @Override
   public void update(boolean newState) {
-    boolean pState = this.state;
+    //boolean pState = this.state;
     this.state = newState;
    
-    if (pState != state) {
+    //if (pState != state) {
       for (UpdateInterface o : outputs) {
         o.update(state);
       }
-    } 
+    //} 
   }
   public int getIndex() {
      return this.index; 
@@ -48,6 +68,7 @@ public class Node implements UpdateInterface {
   public ArrayList<UpdateInterface> getOutputs() {
      return this.outputs; 
   }
+  
   
   
 }

@@ -3,7 +3,8 @@ public class JSONLoader {
   
   
   private final static String EXT = ".json";
-  private final static String PATH = "/home/danielmills/sketchbook/logicGates/data";
+  //private final static String PATH = "/home/danielmills/sketchbook/logicGates/data";
+  private final static String PATH = "E:/FunOrUsefulPrograms/processing-4.0b5-windows-x64/processing-4.0b5/sketchbook/logicGates/data";
   
   
   
