@@ -1,0 +1,33 @@
+{
+    "name": "OR",
+
+    "nodes":[
+        {
+            "name":"A",
+            "input":true,
+            "index":0
+        },
+        {
+            "name":"B",
+            "input":true,
+            "index":1
+        },
+        {
+            "name":"Q",
+            "input":false,
+            "index":0
+        }
+    ],
+
+    "table":{
+        "00":"0",
+        "01":"1",
+        "10":"1",
+        "11":"1"
+    }
+
+
+
+
+
+}
